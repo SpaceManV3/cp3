@@ -31,6 +31,7 @@ int main(void)
   int blockSize = 256;
   int numBlocks = (N + blockSize - 1) / blockSize;
   add<<<numBlocks, blockSize>>>(N, x, y);
+  std::cout << "Number of thread blocks: " << numBlocks << std::endl;
 
   // Wait for GPU to finish before accessing on host
   cudaDeviceSynchronize();
